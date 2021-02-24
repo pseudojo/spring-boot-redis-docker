@@ -14,7 +14,7 @@ docker run \
     --volume ${GRADLE_CACHE_VOLUME}:/home/gradle/.gradle \
     --volume ${PWD}/backend:/home/gradle/project \
     --workdir /home/gradle/project \
-    gradle:5.2-jdk8-alpine gradle clean build
+    gradle:jdk11 gradle clean build
 
 echo
 echo "Build output:"
