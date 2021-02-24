@@ -53,3 +53,29 @@ Run Redis CLI:
 Stop containers:
 
     docker-compose down
+
+
+Test
+-------------------------
+```
+# Spring boot cURL Test
+## Example : curl http://localhost:8080/users/<id>
+## <id> is Integer or Long type Number
+curl http://localhost:8080/users/131000001
+
+# Get redis key and values
+docker exec -it springbootredisdocker_redis_1 redis-cli
+
+# Write command into redis-cli
+127.0.0.1:6379> keys *
+1) "users::123"
+2) "users::12"
+3) "users::12314"
+4) "users::131000001"
+127.0.0.1:6379> get users::131000001
+"\xac\xed\x00\x05sr\x00\x1bcom.example.demo.model.User\xff\x1c]\xa8\xa3\t\x13\a\x02\x00\x02J\x00\x02idL\x00\x04namet\x00\x12Ljava/lang/String;xp\x00\x00\x00\x00\a\xce\xe6\xc1t\x00\x0eUser 131000001"
+127.0.0.1:6379>
+
+```
+
+
